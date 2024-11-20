@@ -14,7 +14,7 @@ module microc(output wire [5:0] Opcode, output wire z, input wire clk, reset, s_
     sum sumador(sum_out, pc_out, 1);
 
     // Multiplexor PC
-    mux2 #(10) mux_pc (pc_in, sum_out, s_inc, instr[9:0]); 
+    mux2 #(10) mux_pc (pc_in, sum_out, instr[9:0], s_inc); 
 
     // Instancia de la Memoria de Programa
     memprog mem (pc_out, clk, instr); // Dirección `pc_out`, Salida `instr`
