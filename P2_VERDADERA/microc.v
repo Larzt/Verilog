@@ -50,7 +50,8 @@ module microc(output wire [5:0] Opcode, output wire z, input wire clk, reset, s_
     // Instancia del Multiplexor para la Entrada de la ALU
     mux2 #(8) mux_alu (
         mux2_out,         // Salida del mux
-        rd1,      // Entrada 0: rd1
+        rd1,               // Entrada 0: rd1
+        instr[11:4]        // inm
         s_inm             // Señal de selección
     );
 
