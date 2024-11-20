@@ -8,7 +8,7 @@ module microc(output wire [5:0] Opcode, output wire z, input wire clk, reset, s_
     wire [3:0] mux1_out;                                // Datos intermedios
 
     // Instancia del Contador de Programa (PC)
-    registro #(10) pc (pc_out, pc_in, clk, reset); // Salida `pc_out`, Entrada `pc_in`
+    registro #(10) pc (pc_out, clk, reset, pc_in); // Salida `pc_out`, Entrada `pc_in`
 
     // Sumador simple
     sum sumador(sum_out, pc_out, 1);
