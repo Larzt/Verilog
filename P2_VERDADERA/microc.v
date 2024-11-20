@@ -17,7 +17,7 @@ module microc(output wire [5:0] Opcode, output wire z, input wire clk, reset, s_
     mux2 #(10) mux_pc (pc_in, sum_out, instr[9:0], s_inc); 
 
     // Instancia de la Memoria de Programa
-    memprog mem (pc_out, clk, instr); // Dirección `pc_out`, Salida `instr`
+    memprog mem (instr, clk, pc_out); // Dirección `pc_out`, Salida `instr`
 
     // Instancia del Banco de Registros
     regfile banco_registros (
@@ -32,7 +32,7 @@ module microc(output wire [5:0] Opcode, output wire z, input wire clk, reset, s_
     // Instancia de la ALU
     alu alu_inst (
         wd3, z_next, // Resultado y flag `z`
-        mux2_1, rd2,        // Operandos `rd1` y `rd2`
+        mux2_out, rd2,        // Operandos `rd1` y `rd2`
         Op               // Operación
     );
 
@@ -50,8 +50,8 @@ module microc(output wire [5:0] Opcode, output wire z, input wire clk, reset, s_
     // Instancia del Multiplexor para la Entrada de la ALU
     mux2 #(8) mux_alu (
         mux2_out,         // Salida del mux
-        instr[11:8],      // Entrada 0: RA1
-        instr[11:4],      // Entrada 1: Valor inmediato
+        instr[15:8],      // Entrada 0: RA1
+        instr[7:0],      // Entrada 1: Valor inmediato
         s_inm             // Señal de selección
     );
 
