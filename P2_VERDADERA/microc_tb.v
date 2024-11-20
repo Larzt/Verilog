@@ -18,7 +18,7 @@ module microc_tb;
         t_s_inm,   // Señal de selección del multiplexor del banco de registros
         t_we,     // Habilitación de escritura del banco de registros
         t_wez,     // Habilitación de escritura del flag de cero
-        Op       // Código de operación para la ALU
+        t_ALUOp       // Código de operación para la ALU
     );
 
     // Generación del reloj
