@@ -2,9 +2,9 @@
 module microc_tb;
 
  // Declaración de señales
-    reg clk, reset;
-    reg s_inc, s_inm, we, wez;
-    reg [2:0] Op;
+    reg t_clk, t_reset;
+    reg t_s_inc, t_s_inm, t_we, t_wez;
+    reg [2:0] t_ALUOp;
     wire [5:0] Opcode;
     wire z;
 
@@ -12,12 +12,12 @@ module microc_tb;
     microc uut (
         Opcode,  // Salida del Opcode
         z,       // Flag de cero
-        clk,     // Señal de reloj
-        reset,   // Señal de reset
-        s_inc,   // Señal de selección del multiplexor del PC
-        s_inm,   // Señal de selección del multiplexor del banco de registros
-        we,     // Habilitación de escritura del banco de registros
-        wez,     // Habilitación de escritura del flag de cero
+        t_clk,     // Señal de reloj
+        t_reset,   // Señal de t_reset
+        t_s_inc,   // Señal de selección del multiplexor del PC
+        t_s_inm,   // Señal de selección del multiplexor del banco de registros
+        t_we,     // Habilitación de escritura del banco de registros
+        t_wez,     // Habilitación de escritura del flag de cero
         Op       // Código de operación para la ALU
     );
 
