@@ -14,7 +14,7 @@ module microc(output wire [5:0] Opcode, output wire z, input wire clk, reset, s_
     sum sumador(sum_out, pc_out, 1);
 
     // Multiplexor PC
-    mux2_1 #(10) mux_pc (pc_in, sum_out, instr[9:0]); 
+    mux2 #(10) mux_pc (pc_in, sum_out, instr[9:0]); 
 
     // Instancia de la Memoria de Programa
     memprog mem (pc_out, instr); // Dirección `pc_out`, Salida `instr`
@@ -37,10 +37,10 @@ module microc(output wire [5:0] Opcode, output wire z, input wire clk, reset, s_
     );
 
     // Instancia del Flip-Flop del Flag de Cero
-    ff zero_flag (z, z_next, clk, wez, reset); // Salida `z`, Entrada `z_next`
+    ffd zero_flag (z, z_next, clk, wez, reset); // Salida `z`, Entrada `z_next`
 
     // Instancia del Multiplexor para el Banco de Registros
-    mux2_1 #(4) mux_bc (
+    mux2 #(4) mux_bc (
         mux1_out,         // Salida del mux
        instr[7:4],    // Entrada 0: RA2
         instr[3:0],    // Entrada 1: WA3
@@ -48,7 +48,7 @@ module microc(output wire [5:0] Opcode, output wire z, input wire clk, reset, s_
     );
 
     // Instancia del Multiplexor para la Entrada de la ALU
-    mux2_1 #(8) mux_alu (
+    mux2 #(8) mux_alu (
         mux2_out,         // Salida del mux
         instr[11:8],      // Entrada 0: RA1
         instr[11:4],      // Entrada 1: Valor inmediato
