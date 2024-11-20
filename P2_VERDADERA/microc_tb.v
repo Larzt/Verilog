@@ -95,7 +95,7 @@ begin
     t_wez = 1;
     t_we = 0;
     t_s_inm = 0;
-    t_s_inc = 1;
+    t_s_inc = z;
     t_ALUOp = 3'b000;
     #30
 
@@ -143,7 +143,7 @@ begin
     t_wez = 1;
     t_we = 0;
     t_s_inm = 0;
-    t_s_inc = 1;
+    t_s_inc = z;
     t_ALUOp = 3'b000;
     #30
 
@@ -191,7 +191,7 @@ begin
     t_wez = 1;
     t_we = 0;
     t_s_inm = 0;
-    t_s_inc = 0;
+    t_s_inc = ~z;
     t_ALUOp = 3'b000;
     #30
 
