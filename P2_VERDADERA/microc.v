@@ -37,7 +37,7 @@ module microc(output wire [5:0] Opcode, output wire z, input wire clk, reset, s_
     );
 
     // Instancia del Flip-Flop del Flag de Cero
-    ffd zero_flag (z, z_next, clk, wez, reset); // Salida `z`, Entrada `z_next`
+    ffd zero_flag (clk, reset, z_next, wez, z); // Salida `z`, Entrada `z_next`
 
     // Instancia del Multiplexor para el Banco de Registros
     mux2 #(4) mux_bc (

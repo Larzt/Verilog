@@ -44,20 +44,21 @@ begin
         t_wez = 0; 
         t_ALUOp = 3'b000;
 
-        #10 t_reset = 0; // Liberar el reset
+        #5;
+        t_reset = 0; // Liberar el reset
 end
 
 // Bloque simulación señales control por ciclo
 initial
 begin
    // CICLO 0 JMP START
-    #15
+    #15;
     t_wez = 1'b0;
     t_we = 1'b0;
     t_s_inm = 1'b0;
     t_s_inc = 1'b0;
     t_ALUOp = 3'b000;
-    #30
+    #30;
 
     // CICLO 1 LI #0 R1
     t_wez = 1'b0;
@@ -65,7 +66,7 @@ begin
     t_s_inm = 1'b1;
     t_s_inc = 1'b1;
     t_ALUOp = 3'b000;
-    #30
+    #30;
 
     // CICLO 2 LI #2 R2
     t_wez = 1'b0;
@@ -73,7 +74,7 @@ begin
     t_s_inm = 1'b1;
     t_s_inc = 1'b1;
     t_ALUOp = 3'b000;
-    #30
+    #30;
 
     // CICLO 3 LI #3 R3
     t_wez = 1'b0;
@@ -81,7 +82,7 @@ begin
     t_s_inm = 1'b1;
     t_s_inc = 1'b1;
     t_ALUOp = 3'b000;
-    #30
+    #30;
 
     // CICLO 4 sub R1 R2 R0 
     t_wez = 1;
@@ -89,7 +90,7 @@ begin
     t_s_inm = 0;
     t_s_inc = 1;
     t_ALUOp = 3'b011;
-    #30
+    #30;
 
     // CICLO 5 jnz Fin
     t_wez = 1;
@@ -97,7 +98,7 @@ begin
     t_s_inm = 0;
     t_s_inc = z;
     t_ALUOp = 3'b000;
-    #30
+    #30;
 
     // CICLO 6 add R3 R3 R3
     t_wez = 1;
@@ -105,7 +106,7 @@ begin
     t_s_inm = 0;
     t_s_inc = 1;
     t_ALUOp = 3'b010;
-    #30
+    #30;
 
     // CICLO 7 addi 1 R1
     t_wez = 1;
@@ -113,7 +114,7 @@ begin
     t_s_inm = 1;
     t_s_inc = 1;
     t_ALUOp = 3'b010;
-    #30
+    #30;
 
     // CICLO 8 nop
     //t_wez = 0;
@@ -121,7 +122,7 @@ begin
     //t_s_inm = 0;
     //t_s_inc = 0;
     //t_ALUOp = 3'b000;
-    //#30
+    //#30;
 
     // CICLO 9  j Test
     t_wez = 1'b0;
@@ -129,7 +130,7 @@ begin
     t_s_inm = 1'b0;
     t_s_inc = 1'b0;
     t_ALUOp = 3'b000;
-    #30
+    #30;
 
     // CICLO 10 sub R1 R2 R0 
     t_wez = 1;
@@ -137,7 +138,7 @@ begin
     t_s_inm = 0;
     t_s_inc = 1;
     t_ALUOp = 3'b011;
-    #30
+    #30;
 
     // CICLO 11 jnz Fin
     t_wez = 1;
@@ -145,7 +146,7 @@ begin
     t_s_inm = 0;
     t_s_inc = z;
     t_ALUOp = 3'b000;
-    #30
+    #30;
 
     // CICLO 12 add R3 R3 R3
     t_wez = 1;
@@ -153,7 +154,7 @@ begin
     t_s_inm = 0;
     t_s_inc = 1;
     t_ALUOp = 3'b010;
-    #30
+    #30;
 
     // CICLO 13 addi 1 R1
     t_wez = 1;
@@ -161,7 +162,7 @@ begin
     t_s_inm = 1;
     t_s_inc = 1;
     t_ALUOp = 3'b010;
-    #30
+    #30;
 
     // CICLO 14 nop
     t_wez = 1;
@@ -169,7 +170,7 @@ begin
     t_s_inm = 0;
     t_s_inc = 1;
     t_ALUOp = 3'b010;
-    #30
+    #30;
 
     // CICLO 15  j Test
     t_wez = 1;
@@ -177,7 +178,7 @@ begin
     t_s_inm = 0;
     t_s_inc = 1;
     t_ALUOp = 3'b100;
-    #30
+    #30;
 
     // CICLO 16 sub R1 R2 R0 
     t_wez = 1;
@@ -185,7 +186,7 @@ begin
     t_s_inm = 0;
     t_s_inc = 1;
     t_ALUOp = 3'b011;
-    #30
+    #30;
 
     // CICLO 17 jnz Fin *
     t_wez = 1;
@@ -193,7 +194,7 @@ begin
     t_s_inm = 0;
     t_s_inc = ~z;
     t_ALUOp = 3'b000;
-    #30
+    #30;
 
     // CICLO 18 j Fin
     t_wez = 1'b0;
@@ -201,7 +202,7 @@ begin
     t_s_inm = 1'b0;
     t_s_inc = 1'b0;
     t_ALUOp = 3'b000;
-    #30
+    #30;
 
     // CICLO 19 j Fin
     t_wez = 1'b0;
@@ -209,7 +210,7 @@ begin
     t_s_inm = 1'b0;
     t_s_inc = 1'b0;
     t_ALUOp = 3'b000;
-    #30
+    #30;
   $finish;
 end
 
