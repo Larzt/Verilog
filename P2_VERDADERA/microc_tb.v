@@ -36,13 +36,13 @@ begin
   $dumpfile("microc_tb.vcd");
   $dumpvars;
   // Inicialización
-        clk = 0;
-        reset = 1; 
-        s_inc = 0; 
-        s_inm = 0; 
-        we = 0; 
-        wez = 0; 
-        Op = 3'b000;
+        t_clk = 0;
+        t_reset = 1; 
+        t_s_inc = 0; 
+        t_s_inm = 0; 
+        t_we = 0; 
+        t_wez = 0; 
+        t_ALUOp = 3'b000;
 
         #10 reset = 0; // Liberar el reset
 end
