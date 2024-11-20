@@ -24,7 +24,7 @@ module microc(output wire [5:0] Opcode, output wire z, input wire clk, reset, s_
         rd1, rd2,       // Salidas `rd1` y `rd2`
         clk, we3,       // Señales de reloj y escritura
         instr[11:8],    // Dirección de lectura 1 (RA1)
-        mux1_out,       // Dirección de lectura 2 (RA2)
+        mux1_out,       // Dirección de lectura 2 Salida mux
         instr[3:0],     // Dirección de escritura (WA3)
         wd3             // Datos de entrada para escritura
     );
@@ -50,8 +50,7 @@ module microc(output wire [5:0] Opcode, output wire z, input wire clk, reset, s_
     // Instancia del Multiplexor para la Entrada de la ALU
     mux2 #(8) mux_alu (
         mux2_out,         // Salida del mux
-        instr[15:8],      // Entrada 0: RA1
-        instr[7:0],      // Entrada 1: Valor inmediato
+        rd1,      // Entrada 0: rd1
         s_inm             // Señal de selección
     );
 
