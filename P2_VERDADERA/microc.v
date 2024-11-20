@@ -11,7 +11,7 @@ module microc(output wire [5:0] Opcode, output wire z, input wire clk, reset, s_
     registro #(10) pc (pc_out, clk, reset, pc_in); // Salida `pc_out`, Entrada `pc_in`
 
     // Sumador simple
-    sum sumador(sum_out, pc_out, 1);
+    sum sumador(sum_out, pc_out, 10'b1);
 
     // Multiplexor PC
     mux2 #(10) mux_pc (pc_in, sum_out, instr[9:0], s_inc); 
