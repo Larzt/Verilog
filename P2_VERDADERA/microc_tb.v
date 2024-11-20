@@ -35,14 +35,11 @@ initial
 begin
   $dumpfile("microc_tb.vcd");
   $dumpvars;
+  $dumpvars(0, uut.banco_registros.R[1]);
+  $dumpvars(0, uut.banco_registros.R[2]);
+  $dumpvars(0, uut.banco_registros.R[3]);
   // Inicialización
-        t_clk = 0;
         t_reset = 1; 
-        t_s_inc = 0; 
-        t_s_inm = 0; 
-        t_we = 0; 
-        t_wez = 0; 
-        t_ALUOp = 3'b000;
 
         #5;
         t_reset = 0; // Liberar el reset
@@ -96,7 +93,7 @@ begin
     t_wez = 1;
     t_we = 0;
     t_s_inm = 0;
-    t_s_inc = z;
+    t_s_inc = 1;
     t_ALUOp = 3'b000;
     #30;
 
@@ -117,12 +114,12 @@ begin
     #30;
 
     // CICLO 8 nop
-    //t_wez = 0;
-    //t_we = 0;
-    //t_s_inm = 0;
-    //t_s_inc = 0;
-    //t_ALUOp = 3'b000;
-    //#30;
+    t_wez = 0;
+    t_we = 0;
+    t_s_inm = 0;
+    t_s_inc = 1;
+    t_ALUOp = 3'b000;
+    #30;
 
     // CICLO 9  j Test
     t_wez = 1'b0;
@@ -144,7 +141,7 @@ begin
     t_wez = 1;
     t_we = 0;
     t_s_inm = 0;
-    t_s_inc = z;
+    t_s_inc = 1;
     t_ALUOp = 3'b000;
     #30;
 
@@ -165,19 +162,19 @@ begin
     #30;
 
     // CICLO 14 nop
-    t_wez = 1;
-    t_we = 1;
+    t_wez = 0;
+    t_we = 0;
     t_s_inm = 0;
     t_s_inc = 1;
-    t_ALUOp = 3'b010;
+    t_ALUOp = 3'b000;
     #30;
 
     // CICLO 15  j Test
-    t_wez = 1;
-    t_we = 1;
+    t_wez = 0;
+    t_we = 0;
     t_s_inm = 0;
-    t_s_inc = 1;
-    t_ALUOp = 3'b100;
+    t_s_inc = 0;
+    t_ALUOp = 3'b000;
     #30;
 
     // CICLO 16 sub R1 R2 R0 
@@ -192,7 +189,7 @@ begin
     t_wez = 1;
     t_we = 0;
     t_s_inm = 0;
-    t_s_inc = ~z;
+    t_s_inc = 0;
     t_ALUOp = 3'b000;
     #30;
 
@@ -200,7 +197,7 @@ begin
     t_wez = 1'b0;
     t_we = 1'b0;
     t_s_inm = 1'b0;
-    t_s_inc = 1'b0;
+    t_s_inc = 0;
     t_ALUOp = 3'b000;
     #30;
 
@@ -208,7 +205,7 @@ begin
     t_wez = 1'b0;
     t_we = 1'b0;
     t_s_inm = 1'b0;
-    t_s_inc = 1'b0;
+    t_s_inc = 0;
     t_ALUOp = 3'b000;
     #30;
   $finish;
