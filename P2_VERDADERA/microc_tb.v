@@ -44,7 +44,7 @@ begin
         t_wez = 0; 
         t_ALUOp = 3'b000;
 
-        #10 reset = 0; // Liberar el reset
+        #10 t_reset = 0; // Liberar el reset
 end
 
 // Bloque simulación señales control por ciclo
